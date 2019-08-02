@@ -23,15 +23,13 @@ export -f resolv
 usage() {
 	echo -e "Params:
 	-d|--domain     domainname.tld
-	-D|--download	enable downloading
-	-P|--process	enable processing of the downloaded certificates
-	-R|--resolve	dns resolve
-	-A              alias for -D -P -R
+	-no-dl          disable downloading
+	-no-proc        disable processing
+	-no-dns         disable dns resolution
 	-q|--quiet      quiet
 	-o|--output     output file name
-	--debug         some debugging
 Example:
-	$0 <-d|--domain domain.tld> -D -P"
+	$0 <-d|--domain domain.tld>"
 	exit
 }
 
@@ -59,7 +57,7 @@ for OPT in "$@"; do
 			-no-proc)
 				PROCESS=0
 				;;
-			-no-resolve|-no-dns)
+			-no-dns)
 				DNSRESOLVE=0
 				;;
 			-q|--quiet)
