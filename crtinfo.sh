@@ -100,7 +100,7 @@ if [ "$DOWNLOAD" = 1 ]; then
 	parallel -a $T/certids.txt $PROGRESS -j 4 wget -q "https://crt.sh/?d={1}" -O "$T/{1}.pem"
 	msg "download finished"
 else
-	msg "skip downloading... (-D to enable)"
+	msg "skip downloading..."
 fi
 
 
@@ -125,7 +125,7 @@ if [ "$PROCESS" = 1 ]; then
 	}
 	rm -f $T/*.pem.*
 else
-	msg "skip processing... (-P to enable) "
+	msg "skip processing..."
 fi
 
 
@@ -139,7 +139,7 @@ if [ "$DNSRESOLVE" = 1 ]; then
 	parallel -a $T/all-domains -j 10 $PROGRESS resolv '{}' > $T/all-resolv
 	cat $T/all-resolv | column -nts' '
 else
-	msg "skip DNS resolution... (-R to enable) "
+	msg "skip DNS resolution..."
 fi
 
 
