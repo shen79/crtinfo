@@ -80,7 +80,7 @@ done
 [ -z "$DOMAIN" ] && usage
 T=./data/$DOMAIN
 [ ! -d $T ] && mkdir -p $T
-[ "$DOWNLOAD" = 1 ] && rm $T/*
+[ "$DOWNLOAD" = 1 ] && rm -f $T/*
 
 
 msg "targeting $DOMAIN"
